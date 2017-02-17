@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title> SupFitness </title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <!-- Bootstrap -->
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" /> 
+    </h:head>
+    <h:body>
+        <ui:include src="header.xhtml" />
+
+
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                Number of users : #{ start1.numberUser }
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                Number of course races : #{ start1.numberTrack }
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                User connected : #{ start1.userConnected }
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Description</h3>
+            </div>
+            <div class="panel-body">
+                SUPINFO wants to create its fitness application <br />
+                
+                The goal is to create a robust web platform to view foot races 
+                and share them on social networks. You Can just share by Facebook.
+            </div>
+        </div>
+
+
+        <br />
+
+        <h:link outcome="/webservice/supuser/List" value="Show All Supuser Items (Bonus)"/>
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page (Bonus)" />
+    </h:body>
+
+
+</html>
+

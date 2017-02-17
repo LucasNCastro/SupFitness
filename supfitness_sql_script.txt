@@ -1,0 +1,52 @@
+/*
+	Created by : SINGH & NEGRO
+*/
+CREATE DATABASE IF NOT EXISTS supfitness;
+
+USE supfitness;
+
+
+CREATE TABLE `user`
+(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR(55) NOT NULL,
+    `password` TEXT NOT NULL,
+    `email` VARCHAR(255) NOT NULL,
+    
+    /*Nullable values*/
+    `zipcode` INT,
+    `firstname` VARCHAR(55),
+    `lastname` VARCHAR(55),
+    
+    /* Primary Key constraint */
+    CONSTRAINT pk_user PRIMARY KEY (id)
+    
+)
+
+CREATE TABLE `track`
+(
+    `id` INT NOT NULL AUTO_INCREMENT,    
+    `date` datetime NOT NULL,
+    /*Foreign Key*/
+    `user_id` INT NOT NULL,
+    
+    /* Primary Key constraint */
+    CONSTRAINT pk_track PRIMARY KEY (id),
+    /* Foreign Key constraint */
+    CONSTRAINT fk_user_user_id FOREIGN KEY (user_id) REFERENCES user(id)
+)
+
+CREATE TABLE `track_log`
+(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `track_id` INT NOT NULL,
+    `longitude` NUMERIC NOT NULL,
+    `latitude` NUMERIC NOT NULL,
+    `speed` NUMERIC NOT NULL DEFAULT 0.0,
+    `distance` NUMERIC NOT NULL DEFAULT 0.0,
+    
+    CONSTRAINT pk_track_log_id PRIMARY KEY (id),
+    CONSTRAINT fk_track_track_id FOREIGN KEY (track_id) REFERENCES track(id)
+)
+
+INSERT INTO user (username, password, email, zipcode, firstname, lastname) values ("ramn", "@zertY123", "ramn@supfitness.com", 75008, "ramn", "singh")
